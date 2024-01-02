@@ -22,6 +22,13 @@ with tab1:
 
         st.dataframe(df)
 
+        st.download_button(
+            label="Télécharger les données en CSV",
+            data=st.session_state['data'].to_csv(index=False, encoding='utf-8-sig').encode('utf-8-sig'),
+            file_name='bdm_articles.csv',
+            mime='text/csv',
+        )
+
         st.write(f"Nombre d'articles : {len(df)}")
 
 with tab2:
